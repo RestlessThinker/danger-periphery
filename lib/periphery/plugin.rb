@@ -34,12 +34,12 @@ module Danger
         periphery_files[filename] << entry
       end
 
-      final_warnings = []
+      final_warnings = Hash.new 
 
       active_files.any? do |filename|
         basename = File.basename(filename)
         if periphery_files.key?(basename)
-          final_warnings << periphery_files[basename]
+          final_warnings[basename] = periphery_files[basename]
         end
       end
 
@@ -49,8 +49,6 @@ module Danger
     # Builds the message
     def offenses_message(offending_files)
       require 'terminal-table'
-
-      puts offending_files
 
       message = "### Periphery Unused Code\n\n"
       table = Terminal::Table.new(
