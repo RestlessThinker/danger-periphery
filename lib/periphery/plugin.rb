@@ -11,7 +11,7 @@ module Danger
   # @tags periphery
   #
   class DangerPeriphery < Plugin
-    def report(report_file, src_root = nil)
+    def report(report_file, src_root: nil)
       files = periphery(report_file)
       return if files.empty?
 
