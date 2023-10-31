@@ -15,7 +15,7 @@ You'll have to output a json report from Periphery
 
 ```ruby
 # Dangerfile
-periphery.report("report.json")
+periphery.report("report.json", src_root: "some_dir")
 ```
 
 ## License

@@ -11,11 +11,11 @@ module Danger
   # @tags periphery
   #
   class DangerPeriphery < Plugin
-    def report(report_file)
+    def report(report_file, src_root = nil)
       files = periphery(report_file)
       return if files.empty?
 
-      markdown offenses_message(files)
+      markdown offenses_message(files, src_root)
     end
 
     private
@@ -47,7 +47,7 @@ module Danger
     end
 
     # Builds the message
-    def offenses_message(offending_files)
+    def offenses_message(offending_files, src_root)
       require 'terminal-table'
 
       output = offending_files.map { |k,v| v }.flatten
@@ -57,6 +57,11 @@ module Danger
         headings: %w(Hints File Name Kind Accessibility Modifiers Module),
         style: { border_i: '|' },
         rows: output.map do |file|
+          location = file['location']
+          if !src_root.empty?
+            paths = file['location'].split(src_root, 2)
+            location = paths[1] if paths.size > 1
+          end
           [file['hints'], file['location'], file['name'], file['kind'], file['accessibility'], file['modifiers'], file['modules']]
         end
       ).to_s
