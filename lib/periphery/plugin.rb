@@ -54,10 +54,10 @@ module Danger
 
       message = "### Periphery Unused Code\n\n"
       table = Terminal::Table.new(
-        headings: %w(File Name Kind Accessibility Module),
+        headings: %w(Hints File Name Kind Accessibility Modifiers Module),
         style: { border_i: '|' },
         rows: output.map do |file|
-          [file['location'], file['name'], file['kind'], file['accessibility'], file['modules']]
+          [file['hints'], file['location'], file['name'], file['kind'], file['accessibility'], file['modifiers'], file['modules']]
         end
       ).to_s
       message + table.split("\n")[1..-2].join("\n")
