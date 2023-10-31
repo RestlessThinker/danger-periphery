@@ -59,7 +59,7 @@ module Danger
         rows: output.map do |file|
           location = file['location']
           if !src_root.empty?
-            paths = file['location'].split(src_root, 2)
+            paths = file['location'].split(src_root.to_s, 2)
             location = paths[1] if paths.size > 1
           end
           [file['hints'], file['location'], file['name'], file['kind'], file['accessibility'], file['modifiers'], file['modules']]
