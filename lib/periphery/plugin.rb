@@ -55,7 +55,7 @@ module Danger
         headings: %w(File Name Kind Accessibility Module),
         style: { border_i: '|' },
         rows: offending_files.map do |file|
-          [file['location'], file['name'], file['accessibility'], file['modules']]
+          [file['location'], file['name'], file['kind'], file['accessibility'], file['modules']]
         end
       ).to_s
       message + table.split("\n")[1..-2].join("\n")
