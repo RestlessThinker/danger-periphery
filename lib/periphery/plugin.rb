@@ -50,6 +50,8 @@ module Danger
     def offenses_message(offending_files)
       require 'terminal-table'
 
+      puts offending_files
+
       message = "### Periphery Unused Code\n\n"
       table = Terminal::Table.new(
         headings: %w(File Name Kind Accessibility Module),
