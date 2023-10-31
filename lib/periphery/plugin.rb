@@ -62,7 +62,7 @@ module Danger
             paths = file['location'].split(src_root.to_s, 2)
             location = paths[1] if paths.size > 1
           end
-          [file['hints'], file['location'], file['name'], file['kind'], file['accessibility'], file['modifiers'], file['modules']]
+          [file['hints'], location, file['name'], file['kind'], file['accessibility'], file['modifiers'], file['modules']]
         end
       ).to_s
       message + table.split("\n")[1..-2].join("\n")
