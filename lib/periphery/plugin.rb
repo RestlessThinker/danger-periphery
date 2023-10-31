@@ -50,13 +50,13 @@ module Danger
     def offenses_message(offending_files)
       require 'terminal-table'
 
-      puts offending_files
+      output = offending_files.map { |k,v| v }.flatten
 
       message = "### Periphery Unused Code\n\n"
       table = Terminal::Table.new(
         headings: %w(File Name Kind Accessibility Module),
         style: { border_i: '|' },
-        rows: offending_files.map do |file|
+        rows: output.map do |file|
           [file['location'], file['name'], file['kind'], file['accessibility'], file['modules']]
         end
       ).to_s
