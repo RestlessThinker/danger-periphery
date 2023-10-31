@@ -1,20 +1,23 @@
 # danger-periphery
 
-A description of danger-periphery.
+A [Danger](https://github.com/danger/danger) plugin for [Periphery](https://github.com/peripheryapp/periphery) reports that checks for unused code.
 
 ## Installation
 
-    $ gem install danger-periphery
+Add this line to your Gemfile:
+```rb
+gem 'danger-periphery'
+```
 
 ## Usage
 
-    Methods and attributes from this plugin are available in
-    your `Dangerfile` under the `periphery` namespace.
+You'll have to output a json report from Periphery
 
-## Development
+```ruby
+# Dangerfile
+periphery.report("report.json")
+```
 
-1. Clone this repo
-2. Run `bundle install` to setup dependencies.
-3. Run `bundle exec rake spec` to run the tests.
-4. Use `bundle exec guard` to automatically have tests run as you make changes.
-5. Make your changes.
+## License
+
+MIT

@@ -2,15 +2,15 @@
 
 lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "periphery/gem_version"
+require "periphery/gem_version.rb"
 
 Gem::Specification.new do |spec|
   spec.name          = "danger-periphery"
   spec.version       = Periphery::VERSION
   spec.authors       = ["RestlessThinker"]
   spec.email         = ["penaflor@gmail.com"]
-  spec.description   = "A short description of danger-periphery."
-  spec.summary       = "A longer description of danger-periphery."
+  spec.description   = "A Danger plugin to find unused code in Swift projects."
+  spec.summary       = "A Danger plugin to find unused code in Swift projects."
   spec.homepage      = "https://github.com/RestlessThinker/danger-periphery"
   spec.license       = "MIT"
 
@@ -22,8 +22,8 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "danger-plugin-api", "~> 1.0"
 
   # General ruby development
-  spec.add_development_dependency "bundler", "~> 2.0"
-  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "bundler", "~> 2.4"
+  spec.add_development_dependency "rake", "~> 13.0"
 
   # Testing support
   spec.add_development_dependency "rspec", "~> 3.4"
